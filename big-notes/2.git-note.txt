@@ -1,0 +1,403 @@
+0. create new branch which in contain full source in current branch
+- git checkout -b "name"
+
+1. switch another brach
+- git switch name
+
+2. merge brach b to a
+- git branch
+--> make sure you are in branch a
+- git merge b
+--> check code -> accept incomming (code of branch b) or accetp current (code of branch a)
+
+3. git push -u origin master
+- -u mean you can type git push for the later
+
+4. remote
+- git remote add name "url"
+
+----------------------------------------------
+
+1. git 
+1.1 How to checkout a remote branch ?
+- git fetch
+- git checkout branchInRemote
+
+1.2 Pull Target branch then merge to Source Branch - in this case (phase3/s1 - feature/abc)
+
+1.3 See all branch in remote
+- git branch -r
+
+1.4 Create branch B from A
+- On branch a
+- git checkout -b B
+- git commit -am "Commit on branch B"
+
+1.5 create new branch C from A 
+- git checkout -b C A 
+- git commit -am "Commit on branch C" 
+
+1.6 Go back to branch A 
+- git checkout A 
+- git commit -am "Commit on branch A" 
+
+1.7 Create an octopus merge 
+- git merge B C
+- It look like this
+…-o-o-x-------A
+      |\     /|
+      | B---/ |
+       \     /
+        C---/
+
+1.8 Merge branch B To A 
+- git checkout A 
+- git merge B 
+
+-----------------
+8 .git pull is git fetch && git merge
+- if you want to pull A then merge A to B
+- git switch A
+- git pull origin A
+- git switch B
+- git merge A
+
+9 delete branch local and remote
+
+delete branch locally
+- git branch -d localBranchName
+
+delete branch remotely
+- git push origin --delete remoteBranchName
+
+
+10. change config from win to bash
+npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
+
+------
+11. git reflog (watch delete commit git)
+12. git reset --hard HEAD~1 (delete previous commit & source code)
+13. git log (watch log)
+-----
+14. raw file
+https://raw.githubusercontent.com/ducccao/wm-css/master/wm.css
+https://.....?raw=true
+
+
+/************ Github  Authentication ****************
+
+15. Github Desktop Login for multiple account problem
+
+git config --global credential.github.com.useHttpPath true
+
+
+/************ How to change author commit in git **************** 
+16. How to change author commit in git
+
+git commit --amend --author="Author Name <email@address.com>"
+
+git commit --amend -m "New Commit Message"
+
+
+17.1 git rebase to a commit hash
+git rebase -i 7938d4d5f40bbcfbd72fd739789288c088c91ada
+
+17.2 Rebase turn back to current head
+git rebase --continue
+git rebase --skip
+
+18. Rebase -i will open VIM, how to undo VIM ?
+- press `u`
+
+19. Dropdown the line VIM
+- press `i`
+
+20. Turn backto VIM command 
+- press `esc`
+
+21. Stop at edited file VIM
+- :wq (write and save then turn to the #ref rebase)
+- :q (quit)
+- :qa ()
+- :qa!
+
+23. view missing commit details 
++ git show ee31819e102432d517ea25a143bda0fbf8103235 --pretty=fuller 
+
+24. git cherry pick - pick another branch commit id to current branch 
+- git cherry-pick b6e7e9e711567527c9c2b35402ef788a5ee451d5
+
+a - b - c - d - e - f  -> feat 
+  \
+    g - h - i   -> main
+    
+- on main branch 
+- git cherry-pick c  
+
+a - b - c - d - e - f  -> feat 
+  \
+    g - h - i - c   -> main
+     
+25. How to rename a folder ?
+- git mv `old name` `new name`
+- mv is stand for move
+
+26. delete multiple branches in locally and remotely
++ locally: git branch -D br1 br2 .. brn 
++ remotely: git push -d remote-name br1 br2 .. brn
+
+27. Scenario
+on current branch - you changes some files, and you wanted to switch to 
+another branch and the changed files does not follow on the branch that you switched, 
+and it's okay if you remove the changed 
+
+- current branch: git reset --hard #newest_id
+- after that do: git switch another_branch
+
+
+28. Pull only one branch and not cause merge commit
+- git pull --ff-only origin main
+
+29. configure git credential with replace all
+git config --global --replace-all user.name "Your New Name"
+git config --global --replace-all user.email "Your new email"
+
+git config --global --replace-all user.name "tcvduc"
+git config --global --replace-all user.email "caovanducs@gmail.com"
+
+
+/************ Why we checkout branch ? ****************
++ Prepare push --force case
++ Leader review code
++ CD/CI
+
+
+
+/************ Make better branch become main branch ****************
+1. 
+git checkout main
+git reset --hard better_brach (rewrite main)
+git push --force origin main
+
+
+
+----- ----- ----- ----- 
+----- github problem 
+----- ----- ----- ----- 
+1. repeat readme a lot
+
+----- ----- ----- ----- 
+----- usually use 
+----- ----- ----- ----- 
+
+1. set username
+git config --global user.name "duccao99"
+
+2. set email 
+git config --global user.email "caovanducs@gmail.com"
+
+3. show config 
+git config --list
+
+4. show global config 
+git config --global --list
+
+5.  remove most previous commit 
+git reset --hard   HEAD~1
+
+6. force push 
+- git push --force
+
+7. github auth
+git config --global credential.github.com.useHttpPath true
+
+
+8. edit the previous commit 
+- git commit --amend -m "new message"
+
+9. stupid commit ? return to the previous commit but files changed still exists
+- git reset --soft head~1
+
+10. show log with one-line & num 
+- git log -3 --oneline
+
+
+11. want to update commit date ?
+- 1. rebase to the old commit 
+- 2. git commit --amend --reset-author --no-edit (update command)
+- 3. rebase back
+
+- example:
+- git rebase -i 8bc4f447f47a653dcb28fc85714cdb931735842d
+      - edit those commit that wanted to edit (VIM) 
+      - VIM 
+      - press `i` - to change file 
+      - edit 
+      - press `esc` to leave change 
+      - :wq
+- git commit --amend --reset-author --no-edit 
+- git rebase --continue
+
+
+
+12. Rebase to the old commit then change author or day or message
+- Example 
++ git log -3 
+
+commit adafae3ea84a2cfdb54d20bfd34044f4da52b199 (HEAD -> main)
+Author: duc-trinh-jh <duc.trinh@journeyh.io>
+Date:   Sun Sep 5 13:20:35 2021 +0700
+
+    fb story: update animation function
+
+commit ec24607c2fee9c427aaa0ceca6dc9be34f1d1903
+Author: duc-trinh-jh <duc.trinh@journeyh.io>
+Date:   Sun Sep 5 13:23:11 2021 +0700
+
+    update debounce, update pixture
+
+commit 5d24d4ef7fc3826d1d9492accdd34ec3f4827059 (origin/main, origin/HEAD)
+Author: duc-trinh-jh <duc.trinh@journeyh.io>
+Date:   Wed Sep 1 18:31:28 2021 +0700
+
++ `esc`
+
++ git rebase -i 5d24d4ef7fc3826d1d9492accdd34ec3f4827059 
++ i 
+edit ec24607c2fee9c427aaa0ceca6dc9be34f1d1903 
+pick adafae3ea84a2cfdb54d20bfd34044f4da52b199
+
++ `Esc`
++ :wq 
+
+- change author ? 
++ git commit --amend --author = "duccao new author"
++ :wq 
+
+- Change date ?
++ git commit --amend --date ="Fri, 03 Sep 2021 22:13:13 +0700"
++ :wq 
+
+
+- change message ?
++ git commit --amend -m "new message"
++ :wq 
+
+
+
+-> If the branch was pushed then commit does not applies in result
+-> If the branch was not pushed scenario attempt later
+
+
+
+
+
+--------------------------------
+-- re learn git from the start
+--------------------------------
+
+
+1. git commit -a (--all) -m
+- commit all tracked file
+
+2. git commit --amend -m "rewrite the previous commit by --amend"
+- rewrite the previous commit
+
+
+
+----- Common
+1. git config --global credential.github.com.useHttpPath true
+
+2. tcvduc account
+git config --global user.name "tcvduc"
+Git config
+
+2. set email 
+git config --global user.email "caovanducs@gmail.com"
+
+
+---------------------------------
+-- repository not found problem 
+---------------------------------
++ git remote rm origin 
++ git remote add origin https://USERNAME:PASSWORD@github.com/username/reponame.git 
+--> Old way -> not work 
+
++ git remote rm origin
++ git remote add origin https://<tokenhere>@github.com/<user>/<repo>.git
+
++ Get access token: 
+Avatar -> settings -> Developer settings -> Personal access tokens 
+-> generate new token 
+
+
+- example:
+git clone https://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@github.com/carparknow/flex.git
+
+- git clone https://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@github.com/duc-trinh-jh/on-board-flex.git
+
+- git clone https://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@github.com/DEV-heyfritz/HeyFritz.git
+
+- new token: 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
+
+git remote add origin https://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@github.com/tcvduc/one-thousand-algorithms.git
+
+git remote set-url origin https://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@github.com/tcvduc/one-thousand-algorithms.git
+
+git remote set-url origin new.git.url/here
+
+
+
+30. github recovery code
+- scenario: 
+  + 2FA OTP login need phone app to provide OTP 
+  + phone broke
+  -> Recovery code
+
+4eb19-fe14b
+ffa23-23618
+b65ac-4c623
+41a2b-9c293
+172ef-a98e8
+a4546-dd4b4
+fb242-ea9be
+803a2-81716
+68ae6-3d766
+89e0c-561b7
+7a174-39059
+b3ea5-aaf77
+7e671-d5472
+1d25a-cad56
+fec43-90e5f
+983f7-ca559
+
+
+31. Info
++ Github account 
+- email: caovanducs@gmail.com
+- password: 0908011888Duc
+- username: tcvduc
+- personal access token: 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
+
+- email: tcvduc.io@gmail.com
+- password: 0908011888Duc
+- username: tcvduc99
+- personal access token: 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
+
+
++ npm account 
+- email: tcvduc.io@gmail.com
+- password: \ . X :;123
+- username: tcvduc
+- repository: git://github.com/my-org/test.git
+
+
+- email: caovanducs@gmail.com
+- password: \ . X :;123
+- username: duccao
+
+- xlG4qH8WOep+Kc4p+IvEhR/1Rmk=
+
+
+
+

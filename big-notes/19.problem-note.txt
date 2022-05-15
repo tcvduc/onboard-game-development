@@ -1,0 +1,12 @@
+Problem Note
+
+1. How to write javascript code to manipulate DOM when
+we got the URI of a site
+- Input: URI Site
+- Output: Write Javascript Code to manipulate DOM
+
+
+2. should an infant (0 - 6 months baby) drink 
+milk product instead drink milk from the mother ?
+
+

@@ -1,0 +1,33 @@
+NodeJS Note
+
+1. Express
+1.1. app.locals variable
+- app.locals.variableName = value;
+- app.locals.is_mobile = true;
+- console.log(app.locals.is_mobile);
+
+1.2. detect device whether laptop or phone
+- on `app.js` code
+
+const app = require('express')();
+const expressDevice = require('express-device');
+app.use(expressDevice.capture());
+expressDevice.enableDeviceHelpers(app);
+expressDevice.enableViewRouting(app);
+
+app.use("api/post",require("/apis/post.api"));
+
+- on `vwHomePage.handlebars` code
+<div>
+    <h2>Detect device</h2>
+    {{#if is_desktop}}
+      <div>Desktop </div>
+    {{/if}}
+
+    {{#if is_phone}}
+      <div>Phone </div>
+    {{/if}}
+</div>
+
+
+- api doc: https://www.npmjs.com/package/express-device

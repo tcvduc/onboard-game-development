@@ -1,0 +1,801 @@
+Corpse 1: Get family's members location through mobile phone - mobile app
+- Get the person who you care location throught mobile phone - mobile app
+
+App name Ver 1: Location Care
+App name Ver 2:
+- problem:
++ App Name is too long
++ The word Care is too reveal
+-> Solve this using Grab idea: one word - Grab
+- some english relative words:
++ location
++ care
++ look
++ mobile phone
++ observe
++ map
++ worry
++ helper stuff to kill somebody
++ a matrix
++ baby learn to do stuff
++ baby learn to join the system
++ Flow
+  + stuff move through eye -> eye nerves -> brain nerves
+  + look something -> create electrical signal -> brain process system
+
+-> Temporary Result 1: Signal - should use verb for the active in the app essence?
+-> Temporary Result 2: Sign
+
+-> Final App Name Ver 2 Result:
+What the app name should be? Later
+
++ App essence ?
+  -> look another person location through mobile phone
++ Use verb or noun or another word type?
+  ->  use any word type is okay as long as it
+  describe the app eseence
+
+
+
+- Flow
+
++ Flow version 1
+  + Parent mobile
+    + Enter children mobile phone
+    + On children mobile, display a request to allow parent
+    to get their location
+
+  + Children mobile
+    + Enter parent mobile phone
+    + On parent mobile, display a request to allow children
+    to get their location
+
++ Flow version 2
+  + Sapien A mobile
+    + Enter person's phone number who you want to look their
+    location:
+    + On sapien B mobile, display a request to allow sapien A
+    to get their location
+
+
+
+
+
+Technical stack
++ React Native
+  + Why React Native?
+  -> Common mobile development tech
++ Database: MySQL
+  + Why MySQL?
+  -> Common database development tech
+
++ Try to deploy to google market
+
+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
+
+git clone https://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@github.com/tcvduc/location-care.git
+
+
+
+
+
+
+I. User Experience
+  1. What will happens if the app don't have the password field
+  and only have phone input field?
+    - Cons
+    + User may see weird
+    + App is not safety (1)
+      + If any user got the phone number of another user
+      then they can access to the data
+        + What if user A got user B data
+          + A can got those information:
+            + B's phone number, name, address
+            + B's location look list
+                + Scenario 1: related to friendship
+                  + Scenario 1.1: good intention
+                    + B is A's friend
+                    + B and A in a place where they drink ancohol
+                    + B got drunk
+                    + A still awake
+                    + A want to communicate B's family to let
+                    them know B status
+                    -> A got B phone then A can do it by using
+                    this app, what a beauty scenario!
+
+                    -> B will not be damaged
+
+                  + Scenario 1.2: bad intention
+                    + A want to kill B
+                    + This is a helper tool for this purpose
+                    -> B will be dead or live a life with full of worries
+                    + But the truth is if A really want to kill B
+                    A will find a way to do this if this tool is not exist
+                    for example: buy data from Google, buy data from Facebook,
+                    buy data from the trademark devices that B use like
+                    phone, television, washing machine, refrigerator, light bubls,
+                    wires even home structure system.
+                    -> So this is not a reason to stop the remove password field
+
+                  + Scenario 1.3: neither good nor bad intention
+                    + Because of the curious A just want to know B
+                    app data
+                    -> B will not be damaged
+
+                + Scenario 2: related to employer and employee relationship
+                  + Scenario 2.1: good intention
+                    + A is a company/employer B are employees
+                    + A want to know where B is, or just because
+                    A want to taste the feeling when we
+                    look somebody location through an application
+                    -> B will not be damaged
+
+                  + Scenario 2.2: bad intention
+                    + A want to control B life
+                    -> B will be damaged
+
+                  + Scenario 2.3: good intention
+                    + B is a employee who also have A employer location
+                    + B want to thank A for the good thing A did
+                    -> A,B will not be damaged
+
+                  + Scenario 2.4: bad intention
+                    + B is a employee who also have A employer location
+                    + B want to harm A for the bad thing A did
+                    -> A,B will be damaged
+
+                  -> This app is risky, those sapiens from this
+                  relationship to higher consciousness
+                  sapiens relationship may not use
+
+                + Scenario 3: Related to company and company relationship
+                  + A and B can watch each other location
+                  -> There is nothing hurt happen if A and B don't
+                  have bad intension
+
+
+                + Scenario 4: Related to country and country relationship
+                  + They will not use
+
+                + Scenario 5: Related to self-self relationship
+                + scenario 5.1: B is a person who will feel
+                  uncomfortable when B's location was known by other
+                    -> B will not use this app
+
+                    + Why B worries about their location?
+                    - Because B can die any second if someone
+                    want to kill B
+
+    - Pros
+    + Don't have to remember password
+    + Short time to logged in
+    + User Interface more simplify
+    + Don't have password field <=> don't have register feature
+    - mental heath pros:
+    + Making our worry neuron cell become not worry neuron cell
+    + Once we have not worry about things, we can do the things
+    we want.
+    + Was we do the thing we want make us happy?
+    + We will not face the regret feeling
+    + Once our strong mental neuron connected, no body can
+    control us, we control ourself, our life
+
+    + The thing is we want to know where our children been
+    and don't have to remember the password because we
+    have a lot of things to do to make this
+    world becomes heaven = )), we don't have time to
+    think a way to harm other for what.
+
+
+    -> If somehow we can fix the (1) problem then
+    we can remove the password field
+      + How to loggin only use phone number field but
+      the app still safe?
+
+    -> Although we have a lot of negative things but
+    let's try to see what happens
+
+    -> Although we see that we have a really lot of
+    negative things but let's try to do something
+    to see what happens
+
+    -> It is too dangerous for user, you do this will harm them, stop
+
+
+  2. Common hand manipulation
+  2.1. Mobile Phone
+                         Phone
+                         -----
+                         |   |
+ Comfortable position ___|___|___ Comfortable position
+                         | o |    Touch the input field at first time
+                         -----    when user put their finger on the phone
+
+
+  2.2. Ipad
+  2.2.1. Vertical position
+      -------
+      |     |
+      |     |
+      |_   _|___ comfortable position
+      || o ||
+      -------
+
+  2.2.2. Horizontal position
+                              ----------
+                              |        |
+    comfortable position    __|[]    []|__ comfortable position
+                              ----------
+
+                         ----------
+                         |   []___|___ display touch content right there
+    touch right there  __|[]    []|__ touch right there
+                         ----------
+  3. Display Flag
+  - Flow:
+  + When user open the app, ask user to get the location
+    + if user allow then display the flag corresponding the country
+    + if user wasn't allow then what might happend ?
+      + if display the USA(+1) country
+        + sleep sapiens will see nothing
+        + awake sapiens in another country may feel something bad
+      -> So what we gonna do?
+        + display blank rectangle? - temporary solution
+
+
+  4. Display too much red color
+  -> Don't display too much red color
+  -> Display red color in stuff like: app name, logo
+
+  5. App color
+  - The color represent for Day work, night have fun, sync with solar system color
+    + Day color for Day
+    + Night color for night
+
+  + Black color damage our pupil
+    -> Decreasing the black opacity
+    -> linear gradient color - use this
+
+  6. The users use the app for kill somebody purpose
+  6.1. war
+  -> Just remove the app from the country
+  6.2. random sapiens
+  -> If a sapiens really want to kill somebody, there are a lot of ways to
+  do.
+  -> Learn privacy from Grab
+
+
+II. User Interface
+ + sign in screen
+    + Logo
+    + Name
+    + Phone Number Input Field
+    + Sign in button
+
+ + dashboard screen
+
+ + refer another app screen
+
+
+
+III. Tech
+1. Declare number/string/any-type value
++ Open app
++ Variables use memory to live
++ If variable have the same value then we should
+point it to the same place to save resources
+
+2. Import problem
+2.1
++ On module A, import module B
++ On module B, import module A
+-> Create infinity cycle import
+
+2.2
++ On module C, import module A, B
++ On module C, export module A, B
+
++ On module A/B, import module C
+-> Create infinity cycle import
+
+
+
+
+
+
+
+IV. Todo
++ Replace all variables those have the same value by global variable
++ App name font famlily
++ onboard canvas
+
+
+V. Tech note
+
+1. Typescript
+- *.d.ts file versus *.ts file versus *.tsx file
+
++ *.d.ts
+  + Typescript declaration file
+  + Typescript compiler scope
+  + This file let Typescript compiler know
+  if stuff was existed
+  + Example:
+    + We have
+      function displayMessage(message) {
+         alert(message)
+      }
+      outside the typescript compiler scope
+      -> Typescript compiler cannot read this
+      -> So we use *.d.ts to declare that
+    + Example
+      + on types.d.ts
+        + write
+          + declare function displayMessage(message:string);
+
++ *.ts file = standard file extension, it
+will be compiled to Javascript
+
++ *.tsx file
+  + React Typescript File
+  + a *.ts file
+  + written using JSX syntax
+
+2. Typescript compiler
+- parse *.ts file to *.js file
+  + npx tsc file.ts
+
+3. JSX
++ JSX: Javascript XML
++ JSX allow us to write HTML in React
+- Example:
++ const element = <h1>I love JSX!</h1>
+
+
+4. XML
++ XML: Extensible Marup Language
++ XML is similar to HTML, but without predefined
+tag to use
++ In XML we define our own tags specifically
+for our need
+- Example:
+<?xml version = "1.0" encoding="UTF-8"?>
+<message>
+ <warning>
+  Hello World
+ </warning>
+</message>
+
+5. android studio tools
+5.1. doc
++ https://docs.expo.dev/workflow/android-studio-emulator/
+
+5.2. How to open Appearance & Behavior
+  + More action -> SDK Manager -> SDK tools
+  + Android SDK Location: C:\Users\LENOVO\AppData\Local\Android\Sdk
+  + ADV: Android Virtual Device
+
+5.3. How to open a virtual mobile phone to code
+- more action -> virtual device manager -> start button
+
+6. figma note
+6.1. How to open web console
+  + right click -> development -> open console
+
+6.2. Integrate Figma Plugin With VS Code
+  + ctrl + shift + B -> select tsc: watch - tsconfig.json.
+
+6.3. Quick Open Plugin
+  + ctrl + / -> plugin name
+
+6.4. hidden layers + hidden right bar
+- ctrl + \|
+
+
+7. mysql note
+7.1. MySQL Server Information
++ user: root
++ password: 1
+
+7.2. Understand varchar(n) size
++ varchar(5) <=> "12345"
++ varchar(255) <=> a string which have 255 characters
+
+7.3. Practise design
++ stuff_name varchar(size = ?)
+  + Common stuff need to do string length is about 20 - 40,
+  so size = 80 is okay
+
+7.4. mysql shell note
++ \connect root@localhost:3306
+  + connect to the database server
+
++ \disconnect
+  + disconnect to the database server
+
++ this has few commands, use MySQL 8.0 Command Line Client instead
+
+7.5. mysql 8.0 command line client note, mysql cli note
++ password: 1
++ after logged in, use mysql query language to query
+
++ show databases
+  + list all database
++ status
+  + show current working database
++ show tables
+  + show all tables from current database that use;
++ describe `table_name`;
+  + describe table structure like type, key, allow null
+  + describe `users`;
+
+7.6. compare 'fulltext search' versus 'like' tech
+- temporary don't understand fulltext search
+- temporary compare result is like > fulltext
+
+
+
+8. Pure Javascript problem
++ It does not update immediately when use fetch
+  -> event.target.checked value automatically change when click
+
+9. Backend note
+9.1. Octet
+- Unit of digital information likes: computing, telecommunications
+- symbol: o
+- Example:
+  + 1 o = 8 bits
+
+9.2. Maximum domain length
+- Might 255 octets
+- 2040 bits = ? varchar
+
+9.3. CORS
+- CORS: Cross Origin Resource Sharing
+- Summary: Allow/not allow another origin/domain/uri
+access our application resouces/api
+
+9.4. keyword of https://www.example.com
++ https: protocol/scheme
++ www.example.com: domain
+
+- Origin:
+  - Example 1: https://www.twilio.com
+  + scheme: https
+  + hostname: www.twilio.com
+
+  - Example 2: https://localhost:5000
+  + scheme: https
+  + hostname: localhost
+  + port: 5000
+
+9.5.CSRF
+- CSRF: Cross Site Request Forgery
+
+9.6. My SQL Problem, mysql note
+9.6.1. auto_increment, delete record not work
+- Change auto_increment to code in vs code.
+
+9.6.2. What is threads connect in mysql
+  + Total number of client access to database server
+
+
+9.7. Unsafe port list
+
+1,      // tcpmux
+7,      // echo
+9,      // discard
+11,     // systat
+13,     // daytime
+15,     // netstat
+17,     // qotd
+19,     // chargen
+20,     // ftp data
+21,     // ftp access
+22,     // ssh
+23,     // telnet
+25,     // smtp
+37,     // time
+42,     // name
+43,     // nicname
+53,     // domain
+69,     // tftp
+77,     // priv-rjs
+79,     // finger
+87,     // ttylink
+95,     // supdup
+101,    // hostriame
+102,    // iso-tsap
+103,    // gppitnp
+104,    // acr-nema
+109,    // pop2
+110,    // pop3
+111,    // sunrpc
+113,    // auth
+115,    // sftp
+117,    // uucp-path
+119,    // nntp
+123,    // NTP
+135,    // loc-srv /epmap
+137,    // netbios
+139,    // netbios
+143,    // imap2
+161,    // snmp
+179,    // BGP
+389,    // ldap
+427,    // SLP (Also used by Apple Filing Protocol)
+465,    // smtp+ssl
+512,    // print / exec
+513,    // login
+514,    // shell
+515,    // printer
+526,    // tempo
+530,    // courier
+531,    // chat
+532,    // netnews
+540,    // uucp
+548,    // AFP (Apple Filing Protocol)
+554,    // rtsp
+556,    // remotefs
+563,    // nntp+ssl
+587,    // smtp (rfc6409)
+601,    // syslog-conn (rfc3195)
+636,    // ldap+ssl
+993,    // ldap+ssl
+995,    // pop3+ssl
+1719,   // h323gatestat
+1720,   // h323hostcall
+1723,   // pptp
+2049,   // nfs
+3659,   // apple-sasl / PasswordServer
+4045,   // lockd
+5060,   // sip
+5061,   // sips
+6000,   // X11
+6566,   // sane-port
+6665,   // Alternate IRC [Apple addition]
+6666,   // Alternate IRC [Apple addition]
+6667,   // Standard IRC [Apple addition]
+6668,   // Alternate IRC [Apple addition]
+6669,   // Alternate IRC [Apple addition]
+6697,   // IRC + TLS
+10080,  // Amanda
+
+9.8. CDN
+- CDN: Content Delivery Network
+
+9.9. revise foreign key knowledge
+
+9.9.1. onboard java scenario
+- users
+   + contacts
+
+- user send messages
+  -> send to any phone number, not in the contact list
+  -> don't use foreign key for this scenario
+
+9.9.2. the first value of foreign key
+- cannot insert new record if the foreign key does not match.
+
+9.10. could not removed: g_unlink() failed error, save remove sql code,
+save error
+
+- no touch, just run the file
+
+
+
+
+-- ------------------------
+-- Table for persons
+-- ------------------------
+create table persons(
+	personId int primary key not null,
+    personName varchar(200)
+);
+
+-- ------------------------
+-- Records for persons
+-- ------------------------
+
+insert into persons (personId, personName) values (1,'person 1');
+insert into persons (personId, personName) values (2,'person 2');
+insert into persons (personId, personName) values (3,'person 3');
+
+
+-- ------------------------
+-- Table for orders
+-- ------------------------
+
+create table orders (
+	orderId int not null,
+    orderNumber int not null,
+    personId int,
+    primary key (orderId),
+    foreign key (personId) references persons (personId)
+);
+
+-- because persons don't have personId = 4, so can't insert
+insert into orders (orderId, orderNumber, personId) values (5, 500, 4);
+
+
+
+
+10. Web Browser Essence
+10.1. Summary
+- A Software
+- To access World Wide Web
+
+10.2. Relative info
+- World Wide Web / Web : Web
+- Web ?
+  +
+
+11. database note
+11.1. 1m user do write/read records at the same time problem
++ Understand single thread
+  + Do one stuff at a time.
+  + What is the truth when 1m user do read/write records in the app?
+    + 1m request to the Backend server -> 1m request to the database server
+    +
+
++ Before good bye JS/TS test 1m virtual server request to access api
+and check if the JS/TS can turn from single thread to multiple threads
+  + Currently don't understand single thread, multiple threads
+
+
+11.2. origins need multiple script cnd
+- Understand the problem:
+  + origin 1: https://stephen.com
+  + backend server: https://stephen-backend.com
+  + cdn server services: https://cdn-server.com
+    + service to origin 1: /api/stephen
+      + service 1: /file1.txt
+      + service 2: /file2.txt
+      + service 3: /file3.txt
+    -> Full uri 1: https://cdn-server.com/api/stephen/file1.txt
+    -> Full uri 2: https://cdn-server.com/api/stephen/file2.txt
+    -> Full uri 3: https://cdn-server.com/api/stephen/file3.txt
+
+  + origin 2: https://www.w3.com
+  + cdn server services: https://cdn-server.com
+    + service to origin 2: /api/w3
+      + service 1: /file1.txt
+      + service 2: /file2.txt
+      + service 3: /file3.txt
+    -> Full uri 1: https://cdn-server.com/api/w3/file1.txt
+    -> Full uri 2: https://cdn-server.com/api/w3/file2.txt
+    -> Full uri 3: https://cdn-server.com/api/w3/file3.txt
+
+  + Currently cdn server uri update 1 time per ~2 hour
+    + random full uri : https://cdn-server-1.com/api/w3/file1.txt
+    + random full uri : https://cdn-server-2.com/api/w3/file1.txt
+    + random full uri : https://cdn-server-3.com/api/w3/file1.txt
+
+  -> How to access cdn server when it uri is change usually?
+     + Temporary solution: touch it database
+
+
+  + step 1: Write backend api to send a array of full cdn uri
+  for stephen app
+    + step 1.1: design database schema to save route services
+    coresponding origins
+    + step 1.2: implement on backend code
+  + step 2: on figma plugin developing, map it into script tags
+  + step 3: append those script into plugin
+
+11.3. Auto generate database script when app has new records
+- Understand the problem
+
+- Approach
+
+
+
+
+
+
+12. DNS Essence
+- DNS: Domain Name System
+- Essencen: IP Addess
+  + IPV4:
+    + 4,294,967,296 IPv4 addresses <=> 2**32 (address0
+    + 32 bits
+  + IPV6:
+    + 340,282,366,920,938,463,463,374,607,431,768,211,456 <=> 2**128 address
+    + 128 bits
+
+13. MMT Note
+- ISP:
+  + Internet Service Provider
+  + Company that provide services bellow
+    + Internet connection
+    + Browser
+    + Email
+    + Personal web site
+
+
+- Protocol: Devices communicate each other through Protocol
+- TCP: Transmission Control Protocol
+- IP: Internet Protocol
+- VOIP: Voice Over Internet Protocol
+- OSI: Open Systems Interconnection (7 layers computer systems use to
+communicate over a network)
+
+- Mạng chuyển mạch gói - Packet switching - sử dụng băng theo nhu cầu, không
+phung phí, tốc độ thiếu sự ổn định, dễ tắc nghẽn
+- Mạng chuyển mạch mạch - cấp phát băng thông bừa bãi, lãng phí, tốc
+độ ổn định, khó tắc nghẽn
+- Internet vận hành dựa trên mạng chuyển mạch gói
+- Gọi qua Mess, Zalo kém ổn định, giá rẻ - do dùng chuyển mạch gói
+- Gọi qua điện thoại ổn định hơn, giá đắt
+
+
+14. third party library note
+- web have web libraries
+- mobile have mobile libraries
+
+15. electronic device meet water note
+- Electronic device meet water then it broke.
+- Why?
+  + It isn't fully water cause, it's the impurities cause the problem.
+  + The chemical reaction from impurities with the device.
+  + Pure water H2O can cause chemical reaction likes: corrosion (Rỉ sét)
+
+- Why you ask why electronic device meet water then it broke?
+  + Because I wanted to know the truth when water meet electronic device.
+  So I have to ask why electronic device meet water then it broke, to make
+  my brain think about it, to make the brain fingure it out what is
+  really going on. Then I can understand thing, then I can have more
+  limitation to control thing. Then I can find hope, then I can do something.
+
+
+- Why you ask `why you ask why electronic device meet water then it broke`?
+Find doctor level to ask. The current brain level cannot answer this question.
+
+16. Current Application Dangerous Problems
+16.1. The laptop which contains server is meet water and impurities
+-> Solution 1: finish college, work, save money, buy multiple laptop/PC,
+then develop later.
+
+
+17. vs code note
+
+17.1. terminal note
+- pwd: Print Working Directory
+  + print current working directory
+  + example: print C:\LENOVO\Desktop\Github\onboard-something
+
+- alias: list all alias
+
+- export-alias -path C:\users\lenovo\desktop\alias.txt
+  + export alias to alias.txt file
+
+- import-alias -path C:\users\lenovo\desktop\alias.txt
+  + import alias 
+
+
+
+
+17.2. change working directory in the terminal
+- change "C:/LENOVO/users/desktop/github/onboard" to ">"
+
++ step 1: on terminal type "notepad $profile"
+
++ step 2: change this code
+function prompt {
+  $p = Split-Path -leaf -path (Get-Location)
+  "$p> "
+}
+
++ step 3: on terminal type
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
++ step 4: close & reopen vs code
+  + close and reopen != reload
+
+
+
+
+VI. Glean
++ ISO: International Organization for Standardization
+
+

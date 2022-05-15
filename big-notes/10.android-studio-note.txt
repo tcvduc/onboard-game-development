@@ -1,0 +1,599 @@
+Android Studio Java Language Note
+
+1. add new file
+- right click -> new -> file
+
+2. change font size navigation bar
+- file -> settings -> appearance & behavior -> appearance -> use custom font -> font size
+
+3. change font size code file
+- file -> settings -> editor -> font
+
+4. change code file font size with ctrl + mouse wheel
+- file -> settings -> editor -> general -> mouse control -> ctrl + mouse wheel
+
+5. find file, find folder
+- ctrl + shift + N
+- shift + shift
+
+6. find content in files
+- ctrl + shift + f
+
+7. Manage virtual device
+- tools -> device manager
+
+
+
+8. dp unit
+- dp: density independent pixels
+- 1dp = 160 dpi screen
+- dpi: dot per inch
+
+9. layout constraint
+- jagged line constraint:
+- squiggle line constraint:
+
+10. go directly function
+- f12
+
+11. generate function short cut
+- pv
+
+12. Android Button XML tag does not change the background color
+- Code this
+
+<Button
+ android:background = "@color/button_background"  />
+
+And this does not change the background color
+
+- How to fix
+<Button
+ android:backgroundTint = "@color/button_background"  />
+
+13. Java String.format(,"format specifier")
+- %d: integer
+- %b: any type
+- %f: floating point
+
+14. Can't execute the application, start button is disabled
+- press 'ctrl + enter' in the terminal cause the problem
+- how to fix
+  + on the top tool bar which has the start app button,
+  next to the hammer icon, choose the app option
+
+-- --------------------
+-- need to be solved
+-- --------------------
+15. pass variable from screen 1 to screen 2, navigating
+- problem solve status: false
+
+16. Invalid VCS root mapping
+- The directory <Project>\onboard-android-java is registered as
+a Git root, but no Git repositories were found there.
+- click configure -> click minus icon
+
+17. Your anti-virus program might be impacting your build performance.
+-
+
+18. build.gradle
+- function:
+
+- Write these to get activate the function
+
+- dependencies:
+dependencies {
+    classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+ }
+
+- click 'Sync' on the top bar
+  + watch build result on 'build' tab on the bottom bar.
+
+
+19. idea.system.path, please set 'idea.log.path' property warning
+- how to fix
+- shift + shift -> Edit Custom Properties
+
+20. Your anti-virus program might be impacting your build performance.
+- how to fix
+-> remove anti-virus app
+
+21. get project directory, find directory, search directory
+shift + shift -> directory name
+
+22. build.gradle not found
+- find in 'Gradle Scripts'
+
+23. how to delete a folder, delete a module
+File -> Project Structure -> Module -> Remove Module
+
+24. watermark
+
+25. configure user snippet, press 'f' then generate function
+- File -> Settings -> Editor -> Live Templates
+
+26. log
+- Have: TextView, findViewById(R.id.view_id), setText()
+- Create a View to log
+
+
+-- ------------------
+-- Java Error Note
+-- ------------------
+1. Not annotated parameter overrides @NonNull parameter
+- Add @NonNull when declare parameter
+- Example:
+ public View onCreateView(
+      @NonNull LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
+      // code ..
+    }
+
+2. Anonymous new View.OnClickListener() can be replaced with lambda
+- Suggest the better code way
+- keyword: java lambda syntax
+- Example:
++ We have the code
+
+   view.findViewById(R.id.button_count).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast myToast = Toast.makeText(getActivity(),"counted",Toast.LENGTH_SHORT);
+                countMe(view);
+                myToast.show();
+            }
+        });
+
++ Replace it by:
+  view.findViewById(R.id.button_count)
+  .setOnClickListener(v -> handleButtonCountOnclick());
+
+  public void handleButtonCountOnclick(){
+    // do something..
+  }
+
+ 3. Type may be primitive
+ - Type primitive warning
+ - Problem Solve status: false
+
+ - Example
+   Integer number = 1; // this will cause warning
+   int number = 1; // this will not cause warning
+
+4. Number formatting does not take into account locale settings.
+Consider using `String.format` instead.
+- Error understanding:
+  The counterTextView.setText(parameter) need the parameter should be
+  a String type.
+
+- Example:
+   TextView counterTextView = view.findViewById(R.id.counter);
+   Integer counter = Integer.parseInt(counterTextView.getText().toString());
+   counterTextView.setText(counter.toString()); // this will cause the error
+
+- How to fix:
+   counterTextView.setText(String.format(counter.toString());
+
+5. Redundant call to 'format()'
+- Error understanding:
++ redundant: dư thừa
+
+ TextView counterTextView = view.findViewById(R.id.counter);
+ Integer counter = Integer.parseInt(counterTextView.getText().toString());
+
+ counterTextView
+ .setText(String.format(counter.toString()));// this will cause the problem
+
+- How to fix:
+ counterTextView.setText(String.format("%d",counter));
+
+
+6. Implicitly using the default locale is a common source of bugs:
+Use `String.format(Locale, ...)` instead
+
+- Error understanding:
+Code this:  counterTextView.setText(String.format("%d",counter));
+will cause the error
+
+- How to fix:
+ counterTextView.setText(String.format(Locale.ENGLISH,"%d",counter));
+
+
+7. Commented out code
+- Error understanding:
++ Code this:
+// View fragmentFirstLayout = inflater.inflate(R.layout.fragment_first, container, false);
+will cause the error
+
+- How to fix:
+Remove code
+
+8. only buildscript {} and other plugins {} script blocks
+are allowed before plugins {} blocks, no other statements are allowed
+- code this in build.gradle
+apply plugin: 'androidx.navigation.safeargs'
+will cause the error
+
+- how to fix:
+remove it, can only code this:
+
+plugins {
+    id 'com.android.application'
+}
+
+9. only id(String) method calls allowed in plugins {} script block
+- code this
+plugins {
+    id 'com.android.application'
+    id2 'androidx.navigation.safeargs'
+}
+will cause the error
+
+- the plugins {} can only have id
+
+- how to fix
+plugins {
+    id 'com.android.application'
+}
+
+
+10. Could not find method classpath() for arguments
+[androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2]
+on object of type org.gradle.api.internal
+.artifacts.dsl.dependencies.DefaultDependencyHandler
+
+- maybe it was an old version syntax
+
+- how to fix
+dependencies {
+   implementation('androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2')
+}
+
+
+11. Plugin [id: 'androidx.navigation.args']
+was not found in any of the following sources:
+- code this
+plugins {
+     id 'com.android.application'
+     id 'androidx.navigation.safe'
+}
+will cause the error
+
+- how to fix
+plugins {
+     id 'com.android.application'
+}
+
+12. Duplicate class found
+- understand the error:
+  + dependencies
+    + dependency A use/import/declare dependency C
+    + dependency B use/import/declare dependency C
+    + dependency C
+  -> cause the error
+
+
+- how to fix
++ open 'gradle.properties'
++ add this code: android.enableJetifier=true
+
+13. Build Make Project
+-
+
+14. get current android version
+String release = Build.VERSION.RELEASE;
+int sdkVersion = Build.VERSION.SDK_INT;
+
+15. cannot start application after do Build -> Make Project,
+start button is disabled
+- how to fix
++ File -> Sync Project with Gradle Files
+
+
+16. The given artifact contains a string literal with a
+package reference 'android.support.design.widget' that cannot be safely rewritten
+-
+
+17. understand onViewCreated method
+
+public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+
+}
+
+18. E/AndroidRuntime: FATAL EXCEPTION: main
+        Process: com.example.my_first_app, PID: 15728
+- code this
+TextView randomNumberInfoTextView = view.findViewById(R.id.random_number_info);
+System.out.println("randomNumberInfoTextView:\n");
+System.out.println(randomNumberInfoTextView.getText());
+- will cause the error
+- because the randomNumberInfoTextView is null so it will cause the error
+System.out.println(randomNumberInfoTextView<-this is null.getText());
+- how to fix:
+remove code
+
+19. declare multiple types parameter on a method
+public <T> void log (T ...args){
+    // do something
+}
+
+20. rest parameter javascript concept in java
+public void log(String ...args){
+    // do something
+}
+
+21. get all application fragments
+
+
+22. declare types in java
+String s = "string";
+Integer i = 1;
+int i2 = 2;
+TextView t = new TextView();
+
+// this is also a declare type
+android.app.FragmentManager fm = getActivity().getFragmentManager();
+type FragmentManager is !=  type android.app.FragmentManager
+
+23. Field can be converted to a local variable
+- how to fix
+class MainActivity extends AppCompatActivity {
+    @SuppressWarnings('FieldCanBeLocal')
+    private ActivityMainBinding binding;
+}
+
+24. arithmetic operator
++
+-
+*
+/
+
+25. logical operator
+==
+||
+&&
+
+-- --------------------
+-- need to be solved
+-- --------------------
+26. how to configure main/start function, start app, first screen,
+a function which start the application
+
+
+27. Version 28 (intended for Android Pie and below)
+is the last version of the legacy support library,
+so we recommend that you migrate to AndroidX libraries
+when using Android Q and moving forward.
+The IDE can help with this: Refactor > Migrate to AndroidX...
+
+- code this in 'build.gradle' file
+dependencies{
+    implementation 'com.android.support:design:27.1.1'
+}
+will cause the error
+
+- how to fix: change the com.android to com.androidx
+dependencies{
+    implementation 'com.androidx.support:design:27.1.1'
+}
+
+28. configure java environment variable - JAVA_HOME
+window -> run -> sysdm.cpl -> advanced tab -> Environment Variables...
+
+
+29. Lông - fur / feather
+
+30. generate get set java
+- generate -> Getter and Setter
+
+31. jdbc
+- jdbc: Java Database Connectivity
+
+32. connect java to mysql
+import com.mysql.*; // mysql library
+import com.sql.*; // SQL Types, methods, support
+
+33. how to have com.mysql
++ install MySQL Connector J
++ Link the 'mysql-connector-java-version.jar' to the project
+  + Eclipse IDE has it's way to link
+
+  + VS Code IDE
+    + Install extension: Extension pack for java
+    + On 'Java Projects' tab on the left side bar
+      + Choose 'Referenced Libraries'
+      + Add (+ icon)
+      + add the 'mysql-connector-java-version.jar'
+
+  + Android Studio IDE
+
+34. how to use com.mysql.jdbc.Driver
+- it's deprecated
+- use 'com.mysql.cj.jdbc.Driver' instead
+
+35. how to use com.mysql.cj.jdbc.Driver
+  + Setup/configuration: 33
+  + Code example:
+    String MY_SQL_DRIVER = "com.mysql.cj.jdbc.Driver";
+    Class.forName(MY_SQL_DRIVER);
+
+        connection = DriverManager.getConnection(url, dbUserName, dbPassword);
+
+        statement = connection.createStatement();
+
+        String sql =
+          "insert into contacts (userId, phoneNumber, userName) values (" +
+          userId +
+          ",'" +
+          phoneNumber +
+          "','" +
+          contactName +
+          "'); ";
+
+        System.out.println("sql: " + sql);
+
+        int ret = statement.executeUpdate(sql);
+
+        return ret == 1;
+
+36. read mysql records java code
+
+public ArrayList<User> getAllUsers() {
+    try {
+      String MY_SQL_DRIVER = "com.mysql.cj.jdbc.Driver";
+
+      // register mysql database driver
+      Class.forName(MY_SQL_DRIVER);
+
+      connection = DriverManager.getConnection(url, dbUserName, dbPassword);
+
+      String sql = "select * from users";
+
+      statement = connection.createStatement();
+
+      ResultSet ret = statement.executeQuery(sql);
+
+      ArrayList<User> users = new ArrayList<>();
+
+      while (ret.next()) {
+        String id = ret.getString(UserInterface.id);
+        String phoneNumber = ret.getString(UserInterface.phoneNumber);
+        String userName = ret.getString(UserInterface.userName);
+
+        User user = new User(id, phoneNumber, userName);
+        users.add(user);
+      }
+
+      return users;
+    } catch (Exception e) {
+      System.out.println(databaseConnectionErrorMessage);
+
+      return new ArrayList<>(0);
+    } finally {
+      try {
+        connection.close();
+        statement.close();
+      } catch (Exception e) {
+        logSomethingBroke();
+      }
+    }
+  }
+
+37. write mysql records java code
+
+   public boolean addNewContact(
+      String userId,
+      String phoneNumber,
+      String contactName
+    ) {
+      try {
+        String MY_SQL_DRIVER = "com.mysql.cj.jdbc.Driver";
+
+        Class.forName(MY_SQL_DRIVER);
+
+        connection = DriverManager.getConnection(url, dbUserName, dbPassword);
+
+        statement = connection.createStatement();
+
+        String sql =
+          "insert into contacts (userId, phoneNumber, userName) values (" +
+          userId +
+          ",'" +
+          phoneNumber +
+          "','" +
+          contactName +
+          "'); ";
+
+        System.out.println("sql: " + sql);
+
+        int ret = statement.executeUpdate(sql);
+
+        return ret == 1;
+      } catch (Exception e) {
+        logDatabaseConnectionError(e);
+        return false;
+      } finally {
+        try {
+          connection.close();
+          statement.close();
+        } catch (Exception e) {
+          logSomethingBroke();
+        }
+      }
+    }
+
+38. escape sequence java, write work directory in string
+- String s = "JRE home directory, e.g., C:\\Program Files\\Java\\jdk1.7.0";
+
+39. java console input
+Scanner scanner = new Scanner(System.in);
+scanner.next(); // read next string, not read full line
+scanner.nextLine(); // read full line string content
+scanner.nextInt(); // read int type
+
+40. java foreach, ArrayList<String>.forEach usage
+ArrayList<String> strings = { "s1", "s2" };
+
+strings.forEach(s->doSomething(s))
+
+strings.forEach(s->{
+    doSomething1(s);
+    doSomething2(s);
+})
+
+-- ----------------
+-- stuck
+-- ----------------
+41.
+- Installation did not succeed.
+- The application could not be installed: SHELL_UNRESPONSIVE
+
+- error understanding:
++ someday start app successfully, someday start app error
+
+- how to fix
+
+
+
+42.
+
+43.
+
+44.
+
+
+
+
+-- ------------------
+-- XML Code note
+-- ------------------
+1. one tag can't have the same android:text
+ <TextView
+        android:id="@+id/textview_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+     -> android:text="@string/hello_android_text"
+     -> android:text="@string/hello_android_text_2"
+
+2. Placeholder text
+- use android:hint
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+    ->  android:hint="Person name" />
+
+3. toggle enable/disable text uppercase
+- android:textAllCaps="false"
+    <Button
+        android:id="@+id/buttonHello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+     -> android:textAllCaps="false"

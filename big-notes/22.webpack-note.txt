@@ -1,0 +1,209 @@
+Webpack Note
+
+I. Summary
+
+- Webpack combine app modules/folder into one or more bundles
+- Webpack is only understand Javascript and JSON files 
+
+II. Core concepts
+1. Entry (lối vào)
+* Definition 
+  + A object property - {entry:''}  
+  + An `Entry point` 
+  + `indicates which module` webpack should use to begin
+  + `building out` 
+  + its internal `dependency graph`
+
+* Example
++ 
+--------------------------------------------------
+| module.exports = {                             |
+|   entry: './path/to/entry-file/entry-file.js'  |
+| }                                              |
+--------------------------------------------------
+
++ 
+--------------------------------------------------
+| module.exports = {                             |
+|   entry: '/src/components/Home/Home.js'        |
+| }                                              |
+--------------------------------------------------
+
+
+2. Output
+
+* Definition 
+  + A object property - {output:''} 
+  + Tell webpack `where` to `emit` the `bundles`  
+
+* Example 
++
+---------------------------------------------
+| module.exports = {                        |
+|   entry: './path/to/entry/entry-file.js', | 
+|   output: {                               |
+|    path: path.resolve(__dirname,'dist'),  | 
+|    filename: 'my-first-webpack.bundle.js' |
+|   }                                       |
+| }                                         | 
+---------------------------------------------
+
++
+------------------------------------------------------------
+| module.exports = {                                       |
+|   entry: './src/components/Dashboard/Dashboard.js',      | 
+|   output: {                                              |
+|    path: path.resolve(__dirname,'/webpack-emit-result/'),| 
+|    filename: 'dashboard-emitted.bundle.js'               |
+|   }                                                      |
+| }                                                        | 
+------------------------------------------------------------
+
+
+3. Loaders
+
+* Definition
+  + Because webpack is only understand Javascript and JSON files.
+  Loaders was born to help webpack process other types of files.  
+  + Convert other types of files to valid modules 
+  + JS file still need loader
+
+* Example 
++ webpack.config.js 
+-------------------------------------------------------------------
+|  cosnt path = require('path')                                   | 
+|                                                                 |
+|  module.exports = {                                             |
+|   entry:'src/assets/css/styles.css',                            |
+|   output: {                                                     |
+|     path: path.resolve(__dirname,'/webpack-emit-result/css/'),  | 
+|     filename: 'emitted-styles.bundle.css'                       |
+|   },                                                            |
+|   module: {                                                     |
+|     rules: [ // -------- This is Loaders                        |
+|       test: /\.txt$/,   // Identifies which files should be transform                                          
+|       use: 'raw-loader' // Indicates which loader should be use to 
+|                         // do the transformation                                         
+|     ]                                                           | 
+|   }                                                             |                                          
+| }                                                               |
+-------------------------------------------------------------------
+
+
+
+4. Plugins
+* Definition 
+  + A stuff 
+  + To optimize bundle 
+  + To manage asset 
+  + To inject environment variables 
+* Example 
+-------------------------------------------------------------------
+| const HTMLWebpackPlugin = require('html-webpack-plugin')        |
+| const webpack = require('webpack') // to access built-in plugin |
+|                                    
+| module.exports = {
+|     entry: './assets/css/styles.css',
+|     output: {
+|       path:'../webpack-emit-result',
+|       filename:'emitted-styles.bundle.js'
+|     },
+|     module: {
+|       rules: [
+|         test: '/\.css$/',
+|         use: 'raw-loader'
+|       ]
+|     },
+|     plugin: [
+|       new HTMLWebpackPlugin({template: './src/index.html'}),
+|     ]
+| }
+-------------------------------------------------------------------
+
+
+
+
+5. Mode 
+
+* Definition 
++ A object property {mode:'production'}  
++ Enable webpack built-in optimization correspond to environment 
++ Environment: production, development, none
+
+* Example 
+----------------------
+| module.exports = { |
+|   mode:'production'|
+| }                  | 
+----------------------
+
+
+6. Browser Compatibility
+- Browser: Google Chrome, Microsoft Edge 
+- Compatibility: tương thích
+
+- On current Browser 
+  + Webpack needs Promise for import()
+  + Webpack needs require.ensure()
+- On older Browser 
+  + Need to `load a polyfill`
+
+
+
+
+II. Keywords
+
+1. App modules
+
+* Definition: App source code folder is a module 
+
+* Example:
+o modules 1
+  o Analytics
+  o Dashboard
+
+o module 2
+  o Games
+  o Users
+
+o src\components\ - module src\components\  
+  o Home\
+    o Home.js
+  o Dashboard\
+    o Dashboard.js 
+
+o assets\ - module assets 
+  o images\ 
+    o logo.png 
+
+ 
+2. Bundle 
+
+3. Emit (Bắn ra)
+* Definition
+  + To send out something typically are beam, noise, smell, gas 
+
+* Example
+  + Alarm emits infrared rays (Tia hồng ngoại) 
+  + Machine emits sounds
+
+4. Dist 
+- Dist: distribution
+
+
+
+III. Operate webpack on terminal
++ step 1: configure run webpack script on `package.json`
+
+- Example:
+"scripts": {
+  "start": "npm run build && node app.js",
+  "build": "webpack --mode production --module-bind js=babel-loader",
+  "webpack-help":"webpack --help", <- this is the run script webpack
+},
+
++ step 2: type command on terminal
+- Example: npm run build
+
+
+

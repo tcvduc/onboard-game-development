@@ -1,0 +1,2 @@
+1. read/write file permission
+- C disk -> properties -> security -> grant permission

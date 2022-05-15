@@ -1,0 +1,74 @@
+Handlebar Note
+
+1. layout code
+<body>
+
+    {{{body}}} <- View will render at this position
+
+    <script src="index.js"></script>
+
+    {{{_sections.javascript }}}
+</body>
+
+2. section cascading style sheet, section javascript code
+- on defaultLayout.handlebars file code
+<head>
+
+   {{{_sections.cascadingStyleSheet}}}
+   <link  rel="stylesheet" href="/vendor/cascading-style-sheet/cascading-style-sheet.css" />
+
+</head>
+
+<body>
+
+ {{{_sections.javascript}}}
+</body>
+
+- on `vwHomePage.handlebar` code
+{{#section 'cascadingStyleSheet'}}
+
+<style>
+    // css code
+</style>
+
+{{/section}}
+
+
+<div> view content </div>
+
+{{#section 'javascript'}}
+
+<script> 
+ // javascript code
+</script>
+
+{{/section}}
+
+3. if else, condition in handlebar
+- on `app.js` code
+
+const handlebars = require("handlebars");
+// handlebar helper
+handlebars.registerHelper("if_equal", function (a, b, options) {
+  return a == b ? options.fn(this) : options.inverse(this);
+});
+
+- on `vwHomePage.handlebar` code
+{{#if_equal variable 1}}
+    <div>1</div>
+{{/if_equal}}
+
+- pass variable variable from 
+app.get("/", function (req, res) {
+  console.log("A device access site");
+
+  res.render("vwHomePage/vwHomePage.handlebars", {
+    variable: 1, <- pass variable through this
+  });
+});
+
+
+4. for loop in handlebars
+
+
+

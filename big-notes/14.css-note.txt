@@ -1,0 +1,48 @@
+CSS Note
+
+1. CSS
+- CSS Stands For: Cascading Style Sheet
+
+2. animation code
+
+.animationCloseSnackbar{
+  animation-name: animationCloseSnackbar;
+  animation-duration: var(--animation_duration);
+
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+
+
+@keyframes  animationOpenSnackbar {
+  from{
+    bottom: -56px;
+  }
+  to{
+    bottom: 40px;
+  }
+}
+
+
+3. customize select option css
+
++ There are only few style attributes can be applied 
+to an `option` element
+
+4. bôi đen, text select highlight
+4.1. keyword
+- text select highlight
+
+4.2. prevent text select highlight  css code
+
+#choseCategorySelect { 
+  user-select: none;
+}
+
+
+5. id name can has space
+- Example:
+  + <div id="options " >  </div>
+    + id = `options` + ` `
+  + <div id="select  " ></div> 

@@ -1,0 +1,29 @@
+Terminal note
+
+1. configure working directory, pwd
+- notepad $profile
+
+2. Get configure script prompt
+- (Get-Item function:prompt).ScriptBlock
+
+
+3. default prompt code
+"PS $($executionContext.SessionState.Path.CurrentLocation)$('>' *        
+($nestedPromptLevel + 1)) ";
+# .Link
+# https://go.microsoft.com/fwlink/?LinkID=225750
+# .ExternalHelp System.Management.Automation.dll-help.xml
+
+
+
+4. custom code
+function prompt {
+    # $p = Split-Path -leaf -path (Get-Location)
+    # $p = $executionContext.SessionState.Path.CurrentLocation
+      $p = Split-Path -leaf -path (Get-Location)
+
+      "$p$('>' * ($nestedPromptLevel + 1)) "
+}
+
+
+

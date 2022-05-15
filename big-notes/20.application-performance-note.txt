@@ -1,0 +1,14 @@
+Application Performance Note
+
+1. Web application performance
+1.1. scroll to position y load some records instead of load all records 
+then display all records.
+- Example: https://www.instagram.com/tramylemy/following/
+
+1.2. send `try again after few minutes`
+to the IP request to server if they write a script to 
+auto read or write records
++ server error status: 429
+  + indicates too many requests in a given amount of time
+  + set retry on header
+

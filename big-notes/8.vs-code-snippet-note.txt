@@ -1,0 +1,26 @@
+1. Config language snippets 
+File -> references -> user snippets ->  javascript || typescript || java || any programming language
+
+2. Change import ES 
+ctrl + shift + P -> open setting json -> npm intellisense
+
+
+3. generate tsconfig.json 
+tsc --init
+tsc -v 
+
+4. Change multiples variable name in one shot 
++ pick variable
++ press F2 
+
+5. toggle zen mode - show who commit 
+ctrl + shift + p 
+toggle zen mode
+
+6. Configure setting json 
+- ctr + shift + P 
+- type: setting json 
+
+7. f12 
+- go to function definition 
+- work on one tab 

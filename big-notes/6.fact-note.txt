@@ -1,0 +1,62 @@
+Fact Note
+
+1. 0: Zero is neither positive nor negative
+2. {} - empty set is either even number or odd number
+3. set vs sequence: 
+  + common: elements, terms 
+  + difference  
+    + sequence: the same elements can appear multiple times
+    + sequence: the order does matter
+    + set: the same elements cannot appear multiple times 
+    + set: the order doesn't matter
+4. Can negative number be a prime number?
+  + No 
+  + Yes 
+  + It does not matter
+5. Foo and Bar variables relatived to US Army WWII acronym
+  + FUBAR - Fucked Up Beyond All Recognition
+    + const foo = 1 <=> const fuckedUp = 1
+    + const bar = 2 <=> const beyondAllRecognition = 2
+
+6. WAR: Willing, Able, Ready
+
+7. It is easier to understand a measured in minutes and remaining 
+seconds than in total seconds.
+  + total seconds: 70s
+    + shred: 
+      + minute: 1m = 60s
+      + second: 10s
+
+  + if we don't have hour, minute definition, and only have 
+  second then
+    + 00:00:00 AM = 0s
+    + 00:01:10 AM = 70s
+    + Hey, when do you wake up?
+      + I woke up at 70s.
+  
+  + if we have hour, minute, second definition
+    + 00:00:00 AM 
+    + 00:01:10 AM 
+    + Hey, when do you wake up?
+      + I woke up at 00:01:10 AM 
+
+8. modulus real life application 
+  + calculate hours, days, longer periods of time 
+  + calculate coordinate, latitude, longitude
+
+9. because we want to get the exactly location/position 
+then coordinate/longitude/latitude definition was born.
+
+10. NASA: The National Aeronautic and Space Administration
+
+11. The age a woman should pregnant
++ Experts say the best time to get pregnant 
+is between your late 20s and early 30s 
+  + This age range is associated with the best 
+  outcomes for both you and your baby
+  + 18% at age 25
+  + 16% at age 30
+  + 12% at age 35
+  + 7% at age 40
+
+

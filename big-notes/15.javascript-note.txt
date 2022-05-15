@@ -1,0 +1,83 @@
+Javascript Note
+
+
+1. fetch code
+
+
+const fetchInput = "http://localhost:1212";
+
+const fetchInitialization = {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    mode: "cors", // no-cors, *cors, same-origin
+    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: "follow", // manual, *follow, error
+    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    // body: JSON.stringify(data), // body data type must match "Content-Type" header
+
+    
+};
+
+window.fetch(fetchInput, fetchInitialization);
+
+
+2. detect DOM Event Code
+
+
+  function detectDOMEvent() {
+    console.log("detectDOMEvent");
+    const mutationObserve = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        console.log(mutation);
+      });
+    });
+
+    mutationObserve.observe(document.documentElement, {
+      attributes: true,
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributeOldValue: true,
+      characterDataOldValue: true,
+    });
+  }
+
+3. detect whether any DOM ELement classList
+attributes has new class or not code
+
+  function detectWhetherClassListHasNewClassOrNot() {
+    const mutationObserve = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        const mutationTarget = mutation.target;
+        const classList = mutationTarget;
+
+        for (const key in mutationTarget) {
+          if (key === "classList") {
+            console.log("key = classList");
+            console.log("value: ", mutationTarget[key]);
+            break;
+          }
+        }
+      });
+    });
+
+    mutationObserve.observe(document.documentElement, {
+      attributes: true,
+      characterData: true,
+      childList: true,
+      subtree: true,
+      attributeOldValue: true,
+      characterDataOldValue: true,
+    });
+  }
+
+4. get element via aria-label attribute
+
+const element = document.querySelector('[aria-label = "Following"]');
+const element2 = document.querySelector("[role = 'presentation']");
+
+

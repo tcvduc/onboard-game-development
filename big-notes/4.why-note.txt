@@ -1,0 +1,21 @@
+1. Why year % 4 = 0 && year % 100 !=0 || year % 400 = 0 
+was the leap year condition ?
+
+2. Why does n^0 = 1
+- n^3 = n x n x n 
+- n^n is the product of n x n x ... x n x ...
+- So n ^ 0 means we don't have any product of n or
+means the product of no numbers at all
+
+3. Why 0 was not an odd number?
+
+4. why nthRoot(x^m) = x^(m/n) ?
+
+5. why n / 0 was error
+
+6. Why do we have f(x) = ax + b equation ?
++ Because it was a foundation for something
+
+7. Why (a - b)(a - b) = a^2 - ab - ab + b^2 ?
+
+

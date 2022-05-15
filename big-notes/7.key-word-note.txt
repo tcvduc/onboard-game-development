@@ -1,0 +1,26 @@
+
+3. Keyword
+- sqrt: square root (can bac 2)
+- nth root: nth root (can bac n) 
+
+
+- ~: tilde
+- #: hashtag 
+- ^: caret 
+- *: asterisk
+- -: dash 
+- {}: curly braket
+- []: square braket  
+- ': apostrophe
+- ": quotation marks
+- /\: slash
+- \: back slash
+- /: forward slash 
+
+- Region
+- North & Latin America
+- EMEA: Europe, Middle East, Africa
+- JAPAC: Japan & Asia-Pacific
+
+- MMORPG: Massively Multiplayer Online Role-Playing Game
+

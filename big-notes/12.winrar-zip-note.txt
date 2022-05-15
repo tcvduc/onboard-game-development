@@ -1,0 +1,9 @@
+Winrar, ZIP
+
+1. e
++ error - the archive is corrupt 
++ how to fix
+  + Tools -> Repair Archive -> Treat the corrupt as RAR / ZIP
+  + open rebuilt.rarName.zip/rar
+
+

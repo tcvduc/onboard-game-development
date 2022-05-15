@@ -1,0 +1,124 @@
+8. math note
+
+8.1. Linear Equation:  ax + b = 0 
++ a = 0 - x = null
++ a != 0 - x = -b / a
+
+8.2. Quadratic Equation: ax^2 + bx + c = 0
+
+- Did you know that when a rocket is launched,
+its path is described by a quadratic equation?
+
++ a = 0 - solveLinearEquation(b,c)
+
++ a != 0   
+  + 2thRoot(b^2 - 4ac) is not a number ? return null
+  + 2thRoot(b^2 - 4ac) is a number ? return 
+  
+  Quadratic formula:
+      -b + 2thRoot(b^2 - 4ac)
+  x1 = _______________________
+                  2a
+
+      -b - 2thRoot(b^2 - 4ac)
+  x2 = ________________________
+                  2a
+
+
+
+8.3. Cubic Equation: ax^3 + bx^2 + cx + d = 0
+
+
+
+8.4. Quartic Equation: ax^4 + bx^3 + cx^2 + dx + e = 0
+
+8.5. stands for, keywords
++ sqrt: Square Root, 2th Root
++ cbrt: Cube Root, 3th Root
+
++ then (and only then) means: 
+  + if not then then what ?
+  + then
+
++ Formula: Công thức
+  + Example: x^2 + (a + b)x + ab = (x + a)(x + b)
+
++ Factor out
+  + Example: Factor out x in x^2 - x
+    x^2 - x 
+<=> x(x - 1)
+
++ real root: nghiệm 
+  + Example: x - 1 = 0
+  - x - 1 = 0 has one real root means: x - 1 = 0
+  has one real root and it was x = 1
+
++ polynomial: Đa thức
+  + Example: f(x) = x - 1
+
++ Thus: Do đó
++ Hence: vì thế
++ Furthermore: Hơn nữa
++ Nevertheless: Tuy nhiên
+
++ Integrals: tích phân 
+  + Tích phân != nguyên hàm
++ : Nguyên hàm 
+  + Nguyên hàm != tích phân
+
+
+
++ Calculus: 
+  + The branch of mathematics
+  + Deals with finding and properties of 
+  derivatives (Đạo hàm) and integrals (Tích phân)
+  of functions (f(x))
+  + Using method `summation of infinities differences`
+
+
++ Integrals essence: 
+  + Bản chất tích phân là gì? 
+    + Là tính diện tích của đường cong đồ thị nằm trong vùng x từ a đến b
+  + 
+
++ Derivative essence: 
+  + The rate of the change bellow
+    + x change then y change
+    + Example:
+      + y = 1
+      d(y) / dx = d(1) / dx = 0
+      -> Because we don't have x in the y = 1
+      so the rate of the change is 0
+    + Example:
+      + y = x - 1
+      d(y) / dx 
+      = d(x - 1) / dx
+      = d(x) / dx + d(-1) / dx
+      = 1 + 0
+      = 1
+      -> Because we have x in the y = x - 1 
+      so we have the rate of the change. And
+      it was calculated by using derivative formula
+        + d(a) / dx = 0  
+          + But why one can found this formula ?
+            + Answer 1: because one has passionate
+            about mathematics, one do math a lot, 
+            the problem one meets increasing by the time
+            so does it problem level so it comes naturally.
+            + Answer 2: god gives one
+
+          + Why should we learn this ?
+          
+          + Forget about how one found this formula.
+ 
+
+        + d(x) / dx = 1
+      
+
+
++ Absolute value: |x|
+
+
+
+
+
