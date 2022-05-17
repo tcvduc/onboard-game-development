@@ -5,13 +5,14 @@ CSS Note
 
 2. animation code
 
-.animationCloseSnackbar{
-  animation-name: animationCloseSnackbar;
-  animation-duration: var(--animation_duration);
-
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
+.swing {
+    transform-origin: top center;
+    animation-name: swing;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:forwards;
+    animation-direction: alternate;
 }
 
 
@@ -46,3 +47,27 @@ to an `option` element
   + <div id="options " >  </div>
     + id = `options` + ` `
   + <div id="select  " ></div> 
+
+
+6. transform origin syntax
+6.1. choose element position to rotate
++ rotate at top position
+element.style {
+ transform-origin: top; 
+ transform: rotate(10deg);
+}
+
++ rotate at top center position
+element.style {
+ transform-origin: top center; 
+ transform: rotate(10deg);
+}
+
++ rotate at bottom position
+element.style {
+ transform-origin: bottom;
+ transform: rotate(10deg);
+}
+
+
+

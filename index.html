@@ -5,6 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Onboard Game Development</title>
+    <link rel="stylesheet" href="./assets/css/css.css" />
   </head>
-  <body></body>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <div class="content">
+      <div class="loading">
+        <div class="main">
+          <img src="./assets/main-loading.gif" alt="loading gif" />
+          <div class="progress">
+            <div class="title font-wenxue">0%</div>
+            <div class="bar">
+              <div class="sub"><div class="percent"></div></div>
+            </div>
+            <div class="text">Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="landing dNone hide">
+        <div class="action-1 swing">
+          <img src="./assets/main-index-title.png" />
+        </div>
+        <div class="action-2">
+          <img src="./assets/main-index-start.png" class="start" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/game-script.js"></script>
+  </body>
 </html>

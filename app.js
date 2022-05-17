@@ -18,4 +18,5 @@ app.get("*", function (req, res) {
 
 app.listen(port, function () {
   console.log(`Game server is started at ${host}`);
+  open(host);
 });

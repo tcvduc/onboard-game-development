@@ -1,0 +1,170 @@
+*{
+margin: 0;
+padding: 0;
+
+}
+
+
+html{
+    font-size: 17.6vh;
+}
+
+body{
+    text-align: center;
+    background-color: lightblue;
+}
+
+#canvas{
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border: 1px solid #000;
+    background-color: bisque;
+    height: 100vh;
+    width: 500px;
+}
+
+
+.content{
+    height: 100vh;
+    width: 544px;
+    margin: 0 auto;
+    position: relative;
+    background-color: cornflowerblue;
+}
+
+.loading{
+    background-color: #f05a50;
+height: 100%;
+width: 100%;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loading .main{
+    width: 60%;
+    margin: 0 auto;
+    color: #fff;
+
+}
+
+.loading .main img{
+    width: 60%;
+    margin: 1rem auto 0;
+}
+
+.loading .main .title{
+    font-size: 0.3rem;
+}
+
+.loading .main .text{
+    font-size: 0.15rem;
+}
+
+.loading .main .bar .sub{
+    height: 0.1rem;
+    width: 98%;
+    margin: 0.008rem auto 0;
+}
+
+.loading .main .bar .percent{
+    height: 100%;
+    width: 0;
+    background-color: #fff;
+    border-radius: 0.6rem;
+}
+
+
+.title{
+    text-align: center;
+}
+
+@font-face {
+    font-family: wenxue;
+    src: url('/assets/wenxue.eot');
+    src:
+    url('/assets/wenxue.eot'),
+    url('/assets/wenxue.woff'),
+    url('/assets/wenxue.ttf'),
+    url('/assets/wenxue.svg');
+}
+
+.font-wenxue{
+    font-family: wenxue;
+}
+
+.loading .main .bar{
+    height: 0.12rem;
+    width: 100%;
+    border: 3px solid #fff;
+    border-radius: 0.6rem;
+    margin: 0.1rem 0;
+}
+
+.bar{
+
+}
+
+.sub{
+
+}
+
+.percent{
+
+}
+
+.text{
+    text-align: center;
+
+}
+
+.action-1{
+position: absolute;
+width: 100%;
+}
+
+.action-1 img{
+    width: 50%;
+}
+
+
+
+.landing .action-2{
+    position: absolute;
+    bottom: 0.2rem;
+    width: 100%;
+}
+.action-2 img{
+    width: 60%;
+}
+
+.landing .start{
+    width: 65%;
+}
+
+
+.dNone{
+    display: none;
+}
+
+
+
+.swing{
+    transform-origin: top center;
+    animation-name: swing;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:forwards;
+    animation-direction: alternate;
+}
+
+@keyframes swing {
+    from{
+        transform: rotate(-10deg);
+    }
+
+    to{
+        transform: rotate(10deg);
+
+    }
+}
