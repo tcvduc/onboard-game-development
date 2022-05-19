@@ -11,9 +11,12 @@
  * + step 2: display the loading bar from 0% to 100% - done
  * + step 3: display the loading bar from 0% to 100% corresponding 3 - seconds - done
  * + step 4: display the loading bar from 0% to 100% corresponding 3 seconds, but it
- * work smother each second
- * + step 5:
- * + step 3:
+ * work smother 1 second - done
+ * + step 5: display the loading bar from 0% to 100% corresponding 3 seconds
+ * work smother 2 second
+ * + step 6: display the loading bar from 0% to 100% corresponding 3 seconds
+ * work smother 3 second
+ * + step 7:
  *
  *
  *
@@ -25,7 +28,98 @@ const globalVariables = {
   loadingTime: 3000,
 };
 
-async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmother() {
+/**
+ *
+ * @param {number} percent
+ */
+function displayPercentCorrespondingLoadingBar(percent) {
+  const loadingPercent = document.getElementById("loadingPercent");
+  loadingPercent.innerHTML = `${percent}%`;
+}
+
+async function displayLoadingBarFrom0PercentTo100PercentCorresponding2SecondsSmother() {
+  /**
+   * - The result
+   * + 2 seconds <=> 200 / 3 percent loading bar
+   * + 2 seconds <=> 2000 interval time
+   *
+   * - Analyze
+   * + 200 / 3 = 1 / 3 + 1 / 3 + .. (197 times)  + 1 / 3
+   * + 2 seconds <=> 2000 interval time
+   *   + 1 seconds <=> 1000 interval time
+   *   + 1 seconds <=> 1000 interval time
+   * + 2 seconds <=> 200 / 3 percent loading bar
+   *   + 1 seconds <=> 100 / 3 percent loading bar
+   *     + 1000 interval time <=> 100 / 3 percent loading bar
+   *       + 10 interval time <=> 1 / 3 percent loading bar
+   *   + 1 seconds <=> 100 / 3 percent loading bar
+   *     + 1000 interval time <=> 100 / 3 percent loading bar
+   *       + 10 interval time <=> 1 / 3 percent loading bar
+   * + break condition:
+   *   + time: 2 seconds
+   *   + percent: 200 / 3 ~ 66
+   *
+   * -- -----------------------------------------------
+   *     10   interval time <=> 1 / 3 percent loading bar
+   * <=> 1000 interval time <=> 100 / 3 percent loading bar
+   * <=> 2000 interval time <=> 200 / 3 percent loading bar
+   *
+   *     10   interval time <=> 1 / 3 percent loading bar
+   * <=> 20   interval time <=> 2 / 3 percent loading bar
+   * <=> 2000 interval time <=> 200 / 3 percent loading bar
+   *
+   *
+   *
+   *
+   *
+   */
+  const percent = document.getElementsByClassName("percent")[0];
+  const startRunSecond = new Date().getSeconds();
+  const breakIntervalNumber = Math.floor(200 / 3);
+  console.log("startRunSecond: ", startRunSecond);
+  /**
+   *
+   * @param {HTMLDivElement} percent
+   */
+  function promiseIncreaseLoadingBarTwoSeconds(percent) {
+    const loadingPercent = document.getElementById("loadingPercent");
+    let increasePercentVariable = 0;
+    return new Promise(function (resolve) {
+      const interval = window.setInterval(function () {
+        if (Math.floor(increasePercentVariable) === breakIntervalNumber) {
+          resolve(increasePercentVariable);
+          window.clearInterval(interval);
+        }
+        percent.style.width = `${increasePercentVariable}%`;
+        const loadingPercentFixedTwo = increasePercentVariable.toFixed(2);
+        const loadingPercentFixedTwoString = loadingPercentFixedTwo.toString();
+        if (
+          loadingPercentFixedTwoString[
+            loadingPercentFixedTwoString.length - 1
+          ] === "0" &&
+          loadingPercentFixedTwoString[
+            loadingPercentFixedTwoString.length - 1 - 1
+          ] === "0"
+        ) {
+          loadingPercent.innerHTML = `${increasePercentVariable.toFixed(0)}%`;
+        } else {
+          loadingPercent.innerHTML = `${increasePercentVariable.toFixed(2)}%`;
+        }
+        increasePercentVariable = increasePercentVariable + 2 / 3;
+      }, 20);
+    });
+  }
+
+  await promiseIncreaseLoadingBarTwoSeconds(percent);
+
+  const endRunSecond = new Date().getSeconds();
+  console.log("endRunSecond: ", endRunSecond);
+
+  const actualRunTime = endRunSecond - startRunSecond;
+  console.log("actualRunTime: ", actualRunTime);
+}
+
+async function displayLoadingBarFrom0PercentTo100PercentCorresponding1SecondsSmother() {
   /**
    * - How to make this smoother?
    * + It was not smooth because
@@ -56,13 +150,28 @@ async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmo
    * const second = time.getSeconds();
    * const millisecond = time.getMilliseconds();
    *
+   * 3. interval
+   * window.setInterval(function(){
+   *  // do something
+   * },1000)
+   *
+   * 4. promise
+   * function promiseInterval(){
+   *  return new Promise(function(resolve){
+   *      window.setInterval(function(){
+   *          // do something
+   *          resolve(1);
+   *      },1000)
+   *
+   *  })
+   * }
    *
    *
    *
    *
    *
    * + step 1: make it smooth from 0% to 100 / 3 % - done
-   * + step 2: make it smooth from 0% to 100 / 3 % corresponding 1s
+   * + step 2: make it smooth from 0% to 100 / 3 % corresponding 1s - done
    *
    *
    *
@@ -72,9 +181,9 @@ async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmo
 
   const percent = document.getElementsByClassName("percent")[0];
 
-  let oneSecond = 1000;
-
   /**
+   * Analyze
+   *
    * 100 / 3 = 1 / 3 + 1 / 3 + .. (97 times) + 1 / 3
    *
    * + interval time: 1000 = 1 second
@@ -88,12 +197,17 @@ async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmo
    *   .. 10 time 100
    * => 100 <=> 10 times + 1 / 3
    * => 10 <=> 1 times + 1 / 3
+   *
+   * => do stuff in 1 second code
+   *
+   *
+   *
    */
 
   const breakIntervalNumber = Math.floor(100 / 3);
 
-  const date = new Date();
-  const startRunSecond = date.getSeconds();
+  const startRunSecond = new Date().getSeconds();
+  console.log("startRunSecond: ", startRunSecond);
 
   function promiseIncreaseLoadingBarTo100Slash3Percent() {
     let increasePercentBarVariable = 1 / 3;
@@ -107,6 +221,11 @@ async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmo
 
         if (increasePercentBarVariable !== 100 / 3) {
           percent.style.width = `${increasePercentBarVariable}%`;
+          const displayPercentNumberWithTwoFixed =
+            increasePercentBarVariable.toFixed(2);
+          displayPercentCorrespondingLoadingBar(
+            displayPercentNumberWithTwoFixed
+          );
         }
         increasePercentBarVariable = increasePercentBarVariable + 1 / 3;
       }, 10);
@@ -115,9 +234,10 @@ async function displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmo
 
   const was100Slash3Percent =
     await promiseIncreaseLoadingBarTo100Slash3Percent();
-  console.log("was100Slash3Percent:", was100Slash3Percent);
+  const endRunSecond = new Date().getSeconds();
+  console.log("endRunSecond: ", endRunSecond);
 
-  const endRunSecond = date.getSeconds();
+  console.log("Actual run time : ", endRunSecond - startRunSecond);
 }
 
 function displayLoadingBarFrom0PercentTo100PercentCorresponding3Seconds() {
@@ -179,7 +299,8 @@ function loading() {
   //   display100PercentLoadingBar();
   //   displayLoadingBarFrom0PercentTo100Percent();
   //   displayLoadingBarFrom0PercentTo100PercentCorresponding3Seconds();
-  displayLoadingBarFrom0PercentTo100PercentCorresponding3SecondsSmother();
+  // displayLoadingBarFrom0PercentTo100PercentCorresponding1SecondsSmother();
+  displayLoadingBarFrom0PercentTo100PercentCorresponding2SecondsSmother();
 }
 
 loading();

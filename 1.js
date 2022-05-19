@@ -1,21 +1,5 @@
-function tryPromise() {
-  let index = 0;
-  return new Promise(function (resolve) {
-    const interval = setInterval(() => {
-      console.log(index);
-      if (index === 2) {
-        resolve("done promise function");
-        clearInterval(interval);
-      }
-      index++;
-    }, 1000);
-  });
-}
+const number = 10.1234234;
+console.log(number);
 
-async function f() {
-  const retPromise = await tryPromise();
-  console.log(retPromise);
-  console.log("after promise log this");
-}
-
-f();
+const numberWithTwoPrecision = number.toFixed(2);
+console.log(numberWithTwoPrecision);
