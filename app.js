@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.port || 1212;
 const host = `http://localhost:${port}`;
 
+app.use("/", express.static(path.resolve(__dirname, "./src")));
 app.use("/assets", express.static(path.resolve(__dirname, "./assets")));
 app.use(
   "/distributable",
