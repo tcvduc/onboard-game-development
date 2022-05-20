@@ -1,5 +1,7 @@
-const number = 10.1234234;
-console.log(number);
+let n = 1 / 3;
 
-const numberWithTwoPrecision = number.toFixed(2);
-console.log(numberWithTwoPrecision);
+let sum = 0;
+
+sum = n + n + n + n + n;
+
+console.log(sum);
